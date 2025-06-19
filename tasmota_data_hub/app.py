@@ -3,7 +3,16 @@ import os
 import threading
 import time
 from flask import Flask, jsonify, render_template
-from .tasmota import TasmotaClient
+
+# Allow running the file directly as ``python tasmota_data_hub/app.py``.
+try:  # pragma: no cover - import trick
+    from .tasmota import TasmotaClient
+except ImportError:  # executed as a script without package context
+    import sys
+    from pathlib import Path
+
+    sys.path.append(str(Path(__file__).resolve().parents[1]))
+    from tasmota_data_hub.tasmota import TasmotaClient
 
 
 def create_app() -> Flask:

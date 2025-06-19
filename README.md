@@ -24,10 +24,14 @@ pip install -r requirements.txt
 
 2. Set the `TASMOTA_URL` environment variable to the base URL of your device, e.g. `http://192.168.1.50`.
 
-3. Start the application:
+3. Start the application (either as a module or directly):
 
 ```bash
+# Run as a module
 python -m tasmota_data_hub.app
+
+# Or run the script directly
+python tasmota_data_hub/app.py
 ```
 
 Open `http://localhost:5000` in your browser to view the dashboard.
